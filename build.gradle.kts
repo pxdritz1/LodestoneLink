@@ -7,7 +7,7 @@ plugins {
 group = "dev.zyverasystems"
 version = "1.0.2"
 
-val minecraftApiVersion = "1.19.4-R0.1-SNAPSHOT"
+val minecraftApiVersion = "1.21.6-R0.1-SNAPSHOT"
 val foliaSchedulerVersion = "0.7.0"
 
 repositories {
@@ -21,6 +21,8 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:$minecraftApiVersion")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.cjcrafter:foliascheduler:$foliaSchedulerVersion")
+    testImplementation(kotlin("test"))
+    testImplementation("io.papermc.paper:paper-api:$minecraftApiVersion")
 }
 
 tasks {
@@ -28,11 +30,11 @@ tasks {
         // Configure the Minecraft version for our task.
         // This is the only required configuration besides applying the plugin.
         // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("1.21")
+        minecraftVersion("1.21.6")
     }
 }
 
-val targetJavaVersion = 17
+val targetJavaVersion = 21
 kotlin {
     jvmToolchain(targetJavaVersion)
 }

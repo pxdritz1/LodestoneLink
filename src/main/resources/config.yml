@@ -1,8 +1,17 @@
+teleport-delay: 5
+combat-duration: 30
+
 item:
   displayname: "<b><gradient:#FF0C0C:#9504FD:#00FF6E>Teleport Compass</gradient></b>"
   lore:
     - "<#0C26FF>Right click to open menu"
     - "<#0C26FF>Left click on Lodestone to add location"
+
+warp:
+  displayname: "<b><gradient:#00D1FF:#00FF8C>Warp Compass</gradient></b>"
+  lore:
+    - "<gray>Public Warp: {NAME}"
+    - "<gray>Right click to begin teleport"
 
 crafting:
   shape:
@@ -26,3 +35,27 @@ menu:
 messages:
   unsafe: "<red>This waypoint is unsafe to teleport to."
   max: "<red>This teleport compass has reached the limit."
+  teleported: "<green>Teleported.</green>"
+  invalid-warp: "<red>That warp no longer exists."
+  no-pending: "<red>You do not have a teleport in progress."
+  in-combat: "<red>You are in combat. Combat ends in {TIME}s."
+  movement-cancel: "<red>Teleport cancelled because you moved."
+  damage-cancel: "<red>Teleport cancelled because you took damage."
+  death-cancel: "<red>Teleport cancelled because you died."
+  disconnect-cancel: "<red>Teleport cancelled because you disconnected."
+  world-cancel: "<red>Teleport cancelled because you changed worlds."
+  already-running: "<red>A teleport is already in progress."
+  countdown:
+    5: "<gray>5</gray>"
+    4: "<gray>4</gray>"
+    3: "<gray>3</gray>"
+    2: "<gray>2</gray>"
+    1: "<gray>1</gray>"
+  warp-created: "<green>Warp created: {NAME}</green>"
+  warp-deleted: "<green>Warp removed: {NAME}</green>"
+  warp-list: "<gold>Warps: {LIST}</gold>"
+  warp-given: "<green>Warp compass created for {NAME}</green>"
+  invalid-name: "<red>Invalid warp name.</red>"
+  no-warps: "<red>No public warps were found.</red>"
+  warp-invalid-item: "<red>That warp compass is invalid.</red>"
+  combat-block: "<red>You cannot teleport while in combat.</red>"

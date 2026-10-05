@@ -1,1 +1,1 @@
-rootProject.name = "LodestoneLink"
+rootProject.name = "LodestoneLink++"

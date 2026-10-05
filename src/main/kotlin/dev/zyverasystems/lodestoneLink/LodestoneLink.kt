@@ -1,5 +1,6 @@
 package dev.zyverasystems.lodestoneLink
 
+import dev.zyverasystems.lodestoneLink.commands.WarpCommands
 import dev.zyverasystems.lodestoneLink.listeners.AddWaystoneListener
 import dev.zyverasystems.lodestoneLink.listeners.CancelCraftListener
 import dev.zyverasystems.lodestoneLink.listeners.ClickOpenListener
@@ -21,6 +22,10 @@ class LodestoneLink : JavaPlugin() {
 
         ConfigUtil.init(this)
         SpecialCompass.init(this)
+        WarpCompass.init(this)
+        WarpManager.init(this)
+        CombatManager.init(this)
+        TeleportManager.init(this)
         TeleportMenu.init(this)
         registerCrafting()
 
@@ -29,6 +34,13 @@ class LodestoneLink : JavaPlugin() {
         server.pluginManager.registerEvents(NamedLodestoneManager(), this)
         server.pluginManager.registerEvents(MenuClickListener(this), this)
         server.pluginManager.registerEvents(CancelCraftListener(), this)
+        server.pluginManager.registerEvents(TeleportProtectionListener(), this)
+
+        val warpCommands = WarpCommands()
+        getCommand("setwarp")?.setExecutor(warpCommands)
+        getCommand("warp")?.setExecutor(warpCommands)
+        getCommand("warps")?.setExecutor(warpCommands)
+        getCommand("delwarp")?.setExecutor(warpCommands)
     }
 
     fun registerCrafting() {

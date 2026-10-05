@@ -1,12 +1,25 @@
-name: LodestoneLink
+name: LodestoneLink++
 version: '$version'
 main: dev.zyverasystems.lodestoneLink.LodestoneLink
 api-version: '1.21'
-prefix: LodestoneLink
+prefix: LodestoneLink++
 authors: [ Zyvera-Systems, thepixel3261 ]
-description: Link a special compass to lodestones for waystones!
+description: Link a special compass to lodestones and public warps!
 website: https://zyvera-systems.dev
 folia-supported: true
+commands:
+  setwarp:
+    description: Create a public warp at your current location.
+    permission: lodestonelink.warp.set
+  warp:
+    description: Give a warp compass for a public warp.
+    permission: lodestonelink.warp.give
+  warps:
+    description: List public warps.
+    permission: lodestonelink.warp.list
+  delwarp:
+    description: Remove a public warp.
+    permission: lodestonelink.warp.delete
 permissions:
   lodestonelink.use:
     default: true
@@ -17,3 +30,15 @@ permissions:
   lodestonelink.craft:
     default: true
     description: "Allows to craft the item"
+  lodestonelink.warp.set:
+    default: op
+    description: "Allows creating public warps"
+  lodestonelink.warp.give:
+    default: op
+    description: "Allows giving a warp compass"
+  lodestonelink.warp.list:
+    default: true
+    description: "Allows listing public warps"
+  lodestonelink.warp.delete:
+    default: op
+    description: "Allows removing public warps"

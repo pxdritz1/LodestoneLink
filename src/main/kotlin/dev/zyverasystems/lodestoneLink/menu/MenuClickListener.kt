@@ -1,6 +1,7 @@
 package dev.zyverasystems.lodestoneLink.menu
 
 import com.cjcrafter.foliascheduler.FoliaCompatibility
+import dev.zyverasystems.lodestoneLink.TeleportManager
 import dev.zyverasystems.lodestoneLink.util.ConfigUtil
 import dev.zyverasystems.lodestoneLink.util.ConfigUtil.getStringNn
 import net.kyori.adventure.text.minimessage.MiniMessage
@@ -27,9 +28,10 @@ class MenuClickListener(plugin: JavaPlugin) : Listener {
                 return@Runnable
             }
 
-            if (!e.whoClicked.isOnGround) return@Runnable
-            e.whoClicked.teleportAsync(loc.clone().add(0.5, 1.0, 0.5))
-            e.whoClicked.closeInventory()
+            val player = e.whoClicked as? org.bukkit.entity.Player ?: return@Runnable
+            if (!player.isOnGround) return@Runnable
+            TeleportManager.start(player, loc.clone().add(0.5, 1.0, 0.5), "home")
+            player.closeInventory()
         })
     }
 }
